@@ -332,5 +332,4 @@ function typeCheck(){
 
   console.log( sumFn(1,3) ); //4
 
-
 }
