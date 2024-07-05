@@ -113,7 +113,7 @@
   border: 5px solid grey;
   border-radius: 20px;
   padding : 10px 50px;
-  width: 500px;
+  width: 700px;
   margin: 200px auto;
 }
 
@@ -208,4 +208,16 @@
 
 .btn-row > button:active{
   opacity: 0.7;
+}
+
+
+/* 비밀번호 변경 버튼 */
+.changePassword-btn{
+  border-color: black !important;
+  color: black;
+}
+
+.changePassword-btn:hover{
+  color: white;
+  background-color: black;
 }

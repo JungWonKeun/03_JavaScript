@@ -105,3 +105,27 @@ function withdrawal(){
 
   alert(`${value}원이 출금 되었습니다. 남은 잔액 : ${balance}원`) ;
 }
+
+function changePassword() {
+  const currentPassword = prompt("현재 비밀번호를 입력하세요");
+
+  if(currentPassword === null){
+    alert("비밀번호 변경 취소됨");
+    return;
+  }
+
+  if(currentPassword !== password){
+    alert("현재 비밀번호가 일치하지 않습니다");
+    return;
+  }
+
+  const newPassword = prompt("새로운 비밀번호를 입력하세요");
+
+  if(newPassword === null){
+    alert("비밀번호 변경 취소됨");
+    return;
+  }
+
+  password = newPassword;
+  alert("비밀번호가 변경되었습니다");
+}
