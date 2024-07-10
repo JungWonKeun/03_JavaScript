@@ -1,29 +1,59 @@
-/** 인라인 이벤트 모델 + this 확인 */
-function check1(btn){
-  // 매개 변수 btn : 함수 호출 시 () 안에 작성된
-  //                 check(this)의 this가 대입됨
+const btn = document.getElementById("btn");
+const box = document.querySelector(".box");
+
+const widthInput = document.querySelector(".widthInput");
+const heightInput = document.querySelector(".heightInput");
+
+const fontSizeInput = document.querySelector(".fontSize");
+const colorInput = document.querySelector(".colorInput");
+const bgColorInput = document.querySelector(".bgColorInput");
+
+const inputBox = document.querySelector(".inputBox");
+
+btn.addEventListener("click", function(){
   
-  // btn === this === 이벤트가 발생한 요소(div.my-btn1)
-  console.log(btn);
+  const widthValue = widthInput.value;
+  const heightValue = heightInput.value;
 
-  // 클릭된 요소(btn)에 작성된 내용이 숫자이면 1증가
-  // 아니면 0을 대입
-  
-  // NaN : 숫자 아님
-  // isNaN(값) : 숫자 아니면 true 
-  // Number(값) : number 타입으로 변환
-  
-  // Number(btn.innerText) === NaN
+  const fontSizeValue = fontSizeInput.value;
+  const colorValue = colorInput.value;
+  const bgColorValue = bgColorInput.value;
+  const inputValue = inputBox.value;
 
-  if( isNaN(Number(btn.innerText) )){ // 숫자가 아니면
-    btn.innerText = 0;
+  const fontWeightInputs = document.querySelectorAll('input[name="fontWeigth"]:checked');
+  const rowInputs = document.querySelectorAll('input[name="rowInput"]:checked');
+  const columnInputs = document.querySelectorAll('input[name="columnInput"]:checked');
 
-  } else{
-    // ++ 증감 연산자는 오로지 number 타입에만 사용 가능!
-    // -> 피연산자가 숫자형태의 문자열인 경우("123")
-    //    강제로 숫자 타입으로 바꿔서 연산을 수행
-    btn.innerText++;    
+  box.style.width = widthValue + "px";
+  box.style.height = heightValue + "px";
 
-    // btn.innerText = btn.innerText + 1;
+  box.style.fontSize = fontSizeValue + "px";
+  box.style.color = colorValue;
+  box.style.backgroundColor = bgColorValue;
+  box.innerText = inputValue;
+
+  let fw;
+  for (let i = 0; i < fontWeightInputs.length; i++) {
+    if (fontWeightInputs[i].checked) {
+      fw = fontWeightInputs[i].value;      
+    }
   }
-}
+  box.style.fontWeight = fw;
+
+  let ri;
+  for (let i = 0; i < rowInputs.length; i++) {
+    if (rowInputs[i].checked) {
+      ri = rowInputs[i].value;      
+    }
+  }
+  box.style.justifyContent = ri;
+
+  let ci;
+  for (let i = 0; i < columnInputs.length; i++) {
+    if (columnInputs[i].checked) {
+      ci = columnInputs[i].value;      
+    }
+  }
+  box.style.alignItems = ci;
+
+});
