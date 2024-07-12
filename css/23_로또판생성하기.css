@@ -1,0 +1,19 @@
+*{
+  
+  border: 1px solid black;
+}
+#container{
+  width: 800px;
+  height: 1600px;
+
+}
+.number{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  
+  border-radius: 50%;
+  justify-content: center;
+  text-align: center;
+  
+}
